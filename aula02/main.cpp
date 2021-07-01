@@ -37,7 +37,7 @@ int main()
     // generic lambda, operator() is a template with two parameters
     // generic lambda, operator() is a template with two parameters
     auto glambda = [](auto a, auto &&b)
-    { return a > b; };  // boolean < or >
+    { return a > b; };         // boolean < or >
     bool b = glambda(3, 3.14); // ok
     cout << "bool b: " << b << endl;
 
@@ -52,8 +52,7 @@ int main()
         };
     };
     auto p = vglambda([](auto v1, auto v2, auto v3)
-                      { cout <<" out: "<< v1 << v2 << v3 << endl; });
+                      { cout << " out: " << v1 << v2 << v3 << endl; });
     auto q = p(1, 'a', 3.14); // outputs 1a3.14
     q();
-
 }
