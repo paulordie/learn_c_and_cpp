@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ int main()
 
     /////
     int vetor1[] = {1, 223, 33, 43, 53, 6, 73, 83, 93, 103, 113, 12333};
-    int *pvetor1 = &vetor1[5];//colocar indice 0 e print *(pvetor+1)
+    int *pvetor1 = &vetor1[5]; //colocar indice 0 e print *(pvetor+1)
 
     i = 5;
     while (i >= 0)
@@ -30,15 +31,32 @@ int main()
     }
 
     *pvetor1 = vetor1[0];
-    cout << "valor incremento" << *(pvetor1) << endl;
+    cout << "valor incremento: " << *(pvetor1) << endl;
 
-    cout << "valor incremento" << *(pvetor1 + 1) << endl;
+    cout << "valor incremento: " << *(pvetor1 + 1) << endl;
 
-    cout << "valor incremento" << *(pvetor1 + 2) << endl;
-  //  int **ppvetor = &pvetor1; 
-   // int ***pppvetor = &ppvetor;
-   // cout << "**ppvetor: " << **ppvetor << endl;
+    cout << "valor incremento: " << *(pvetor1 + 2) << endl;
+    //  int **ppvetor = &pvetor1;
+    // int ***pppvetor = &ppvetor;
+    // cout << "**ppvetor: " << **ppvetor << endl;
     //cout << "***pppvetor: " << ***pppvetor << endl;
+    ////////////////////////
+    // char word[100];
+    // cin << word;
+
+    char word[] = "Paulo";
+    int size = strlen(word);
+    char *pEndWord = &word[size - 1];
+    char *pInitWord = &word[0];
+
+    while (pEndWord != pInitWord || pEndWord == pInitWord) //pode ser true para facilitar
+    {
+        cout << *pEndWord << endl;
+        if (pEndWord == pInitWord) //if(pEndWord-- == pInitWord)
+            break;
+        pEndWord--; //pode ser comentado
+    }
+    cout << endl;
 
     return 0;
 }
