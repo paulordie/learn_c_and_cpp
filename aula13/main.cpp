@@ -8,7 +8,7 @@ int my_len(char *str)
     while (*str != '\0')
     {
         size++;
-        str++; //incremento do ponteiro
+        str++; //incremento do ponteiro caso contrario ele nunca vai encontrar o '\0' indicando o final
     }
     return size;
 }
@@ -20,13 +20,13 @@ char *my_string_cat(char *dest, char *orig)
     int size_orig = my_len(orig);
     res = new char[size_dest + size_orig];
 
-    char *p_res = res;
+    char *p_res = res;//ops essa atribuição estarao apontando para o mesmo endereço
 
     while (*dest != '\0')
     {
-        *p_res = *dest;
-        p_res++;
-        dest++;
+        *p_res = *dest;//o que chegou é apontado para o *p_res
+        p_res++;//incremento do ponteiro para o proximo endereço alocado
+        dest++;//incremento do ponteiro para o proximo endereço da variável dest
     }
     while (*orig != '\0')
     {
@@ -40,7 +40,6 @@ char *my_string_cat(char *dest, char *orig)
 
 int main(int argc, char const *argv[])
 {
-
     char *nome1 = new char[100];
     char *nome2 = new char[100];
 
@@ -52,6 +51,13 @@ int main(int argc, char const *argv[])
     char *res = my_string_cat(nome1, nome2);
     cout << res << endl;
     cout << my_string_cat(nome1, nome2) << endl;
+
+    delete[] nome1;
+    delete[] nome2;
+    nome1 = NULL;
+    nome2 = NULL;
+
+    res = NULL;
 
     return 0;
 }
