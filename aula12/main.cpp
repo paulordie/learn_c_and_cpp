@@ -19,7 +19,7 @@ int main()
 
     /////
     int vetor1[] = {1, 223, 33, 43, 53, 6, 73, 83, 93, 103, 113, 12333};
-    int *pvetor1 = &vetor1[5];
+    int *pvetor1 = &vetor1[5];//colocar indice 0 e print *(pvetor+1)
 
     i = 5;
     while (i >= 0)
@@ -28,10 +28,17 @@ int main()
         pvetor1--;
         i--;
     }
-    int **ppvetor = &pvetor1; 
-    int ***pppvetor = &ppvetor;
-    cout << "**ppvetor: " << **ppvetor << endl;
-    cout << "***pppvetor: " << ***pppvetor << endl;
+
+    *pvetor1 = vetor1[0];
+    cout << "valor incremento" << *(pvetor1) << endl;
+
+    cout << "valor incremento" << *(pvetor1 + 1) << endl;
+
+    cout << "valor incremento" << *(pvetor1 + 2) << endl;
+  //  int **ppvetor = &pvetor1; 
+   // int ***pppvetor = &ppvetor;
+   // cout << "**ppvetor: " << **ppvetor << endl;
+    //cout << "***pppvetor: " << ***pppvetor << endl;
 
     return 0;
 }
