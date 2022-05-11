@@ -2,6 +2,8 @@
 
 int main(int argc, char const *argv[])
 {
+    unsigned char y = 235;
+    std::cout << "cast: " << char(y) << std::endl;
     if (true)
         std::cout << "test" << std::endl;
 
